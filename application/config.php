@@ -233,10 +233,11 @@ return [
     ],
     'view_replace_str' => array(
         '__PUBLIC__' =>\think\Request::instance()->root().'/public/',
-        '__STATIC__' =>__ROOT__.'/public/static',
+        '__STATIC__' =>__ROOT__.'/../public/static',
         '__TEMP__' => __ROOT__.'/template',
         '__ROOT__'=>__ROOT__,
         'INDEX_MAIN' =>\think\Request::instance()->root().'/index',
+        'ADMIN_MAIN' =>__ROOT__.'/admin',
         '__UPLOAD__' => __ROOT__,
     ),
     //分页配置
