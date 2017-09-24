@@ -238,7 +238,7 @@ return [
         '__ROOT__'=>__ROOT__,
         'INDEX_MAIN' =>\think\Request::instance()->root().'/index',
         'ADMIN_MAIN' =>__ROOT__.'/admin',
-        '__UPLOAD__' => __ROOT__,
+        '__UPLOAD__' => __ROOT__.'/..',
     ),
     //分页配置
     'paginate'               => [

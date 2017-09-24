@@ -11,13 +11,22 @@ class Index extends BaseController
     {
         parent::__construct();
 
+        $this->initIndex();
+    }
+    public function initIndex(){
+        $userModel = new BaronUserModel();
+        $userRes = $userModel->getAllData('','');
+        $this->assign('userRes',$userRes[0]);
     }
 
     public function index(){
-        $userModel = new BaronUserModel();
-        $userRes = $userModel->getAllData('','');
-//        var_dump($userRes);
-        $this->assign('userRes',$userRes[0]);
+
         return view($this->style . 'index/index');
+    }
+    /**
+     * 查询
+     */
+    public function search(){
+        return view($this->style . 'index/search/index');
     }
 }

@@ -1,0 +1,175 @@
+{extend name="admin/baron/index/base"}
+{block name="main"}
+<link rel="stylesheet" href="__STATIC__/admin/search/css/hover.css">
+<body data-type="search">
+<script src="__STATIC__/assets/js/theme.js"></script>
+<style>
+    .top-panel {
+        position: relative;
+    }
+    #top-image {
+        background: linear-gradient(
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2)
+        ), url('__UPLOAD__/upload/admin/search/mountains_light_sun_sky_clouds.jpg') no-repeat fixed;
+        width:100%;
+        z-index:0;
+        height:300px;
+    }
+
+    .jumbotron {
+        background-color: transparent !important;
+        color: white !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+
+    #content {
+        width: 100%;
+        transform: 			translateY(-50%);
+        top: 30%;
+        position: relative;
+    }
+    .top-item {
+        width: 100%;
+        transform: translateY(-50%);
+        top: 150px;
+        position: relative;
+        /*height: 100%;*/
+    }
+    .am-form-field {
+        color: #fff!important;
+    }
+    .baron-img {
+        display: block;
+        /*padding: 2px;*/
+        margin-bottom: 2rem;
+        background-color: #fff;
+        -moz-box-shadow:1px 2px 6px #707070; -webkit-box-shadow:1px 2px 6px #707070; box-shadow:1px 2px 6px #707070;
+        /*border-radius: 0;*/
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out
+    }
+
+    .baron-img a > img, .baron-img > img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block
+    }
+
+    .baron-img a.baron-img.active, .baron-img a.baron-img:focus, .baron-img a.baron-img:hover {
+        /*border-color: #0e90d2;*/
+        /*background-color: #fff*/
+        -moz-box-shadow:1px 2px 6px #C7C7C7; -webkit-box-shadow:1px 2px 6px #C7C7C7; box-shadow:1px 2px 6px #C7C7C7;
+    }
+
+    .baron-img a > img, .baron-img > img, img.baron-img {
+        max-width: 100%;
+        height: auto
+    }
+</style>
+<!-- 内容区域 -->
+<div class="am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12 top-panel">
+            <div id="top-image">
+                <div class="top-item">
+                    <div class="jumbotron am-text-center">
+                        <div class="am-vertical-align" style="height: 300px;">
+                            <div class="am-vertical-align-middle am-text-center">
+                                <form action="" class="am-form-inline">
+                                    <div class="am-form-group am-form-icon">
+                                        <i class="am-icon-search"></i>
+                                        <input type="text" name="keywords" class="am-form-field" placeholder="搜索">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row-content am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12 top-panel">
+            <ul class="am-avg-sm-4 am-thumbnails">
+                <li><img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
+                <li><img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+                <li><img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+                <!--<li><img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>-->
+                <li>
+                    <div class="tile">
+                        <div class="text">
+                            <h1>Lorem ipsum.</h1>
+                            <img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+                            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                            <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken
+                                meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                            <div class="dots"> <span></span> <span></span> <span></span> </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="tile">
+                        <div class="text">
+                            <h1>Lorem ipsum.</h1>
+                            <img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+                            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                            <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken
+                                meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                            <div class="dots"> <span></span> <span></span> <span></span> </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="tile">
+                        <div class="text">
+                            <h1>Lorem ipsum.</h1>
+                            <img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+                            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                            <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken
+                                meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                            <div class="dots"> <span></span> <span></span> <span></span> </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="tile">
+                        <div class="text">
+                            <h1>Lorem ipsum.</h1>
+                            <img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+                            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                            <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken
+                                meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                            <div class="dots"> <span></span> <span></span> <span></span> </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="tile">
+                        <div class="text">
+                            <h1>Lorem ipsum.</h1>
+                            <img class="baron-img" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+                            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                            <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken
+                                meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                            <div class="dots"> <span></span> <span></span> <span></span> </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script src="__STATIC__/admin/search/js/ios-parallax.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#top-image').iosParallax({
+            movementFactor: 50
+        });
+    });
+</script>
+{/block}
