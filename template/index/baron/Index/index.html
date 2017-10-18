@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-hello,BaronMansion!!
-</body>
-</html>
+{extend name="index/baron/base" /}
+{block name="commonTop"}
+{/block}
+{block name="main"}
+<div class="index-content">
+    <div class="index-table">
+        <div class="index-table_1">
+            <div class="high-logo" style="height: 110px;">
+                <img style="vertical-align: inherit" src="__STATIC__/sliver/img/index/logo_bg.png" alt="SLIVER TREE-共享岛"> </div>
+            <div class="index-box clearfix" id="indexSearch">
+
+                <div class="index-list fl">
+                    <div class="index-search-box active">
+                        <form action="INDEX_MAIN/Search/" method="post" class="index-search index-search1">
+                            <input type="text" class="btn-indexsearch" value="" placeholder="请输入您想要的内容">
+                            <button type="submit" style="cursor: pointer;">搜 索</button>
+                        </form>
+                            <div class="history" style="display: none;">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="high-link fr">
+                    <a href="">高级搜索</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
