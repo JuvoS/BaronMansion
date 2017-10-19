@@ -15,7 +15,14 @@ class baronUser extends BaseService
     public function login($userName,$passWord){
         Session::clear();
         if($userName&&$passWord){
-
+            $baronModel = new BaronUserModel();
+            $baronRes = $baronModel->getInfo(array(
+                'baron_user'=>$userName,
+                'baron_pw'=>$passWord
+            ),'');
+            if($baronRes){
+                return $this->initLoginInfo($baronRes);
+            }
         }
     }
 

@@ -8,6 +8,7 @@
 
 namespace app\admin\controller;
 use data\model\baron\system\BaronUserModel;
+use data\service\baronUser;
 use think\Controller;
 
 \think\Loader::addNamespace('data', 'data/');
@@ -26,17 +27,21 @@ class Login extends Controller
             $userName = isset($_POST['username'])?$_POST['username']:'';
             $psword = isset($_POST['psword'])?$_POST['psword']:'';
 
-            $baronModel = new BaronUserModel();
-            if($baronModel->getInfo(array(
-                'baron_user'=>$userName,
-                'baron_pw'=>$psword
-            ),'')){
+            $baronUserModel = new baronUser();
+            $baronUserModel->login($userName,$psword);
+
+            $baronUserModel = new baronUser();
+            $loginStatus = $baronUserModel->login($userName,$psword);
+            if($loginStatus){
                 return array(
                     'flag'=>true,
                     'url'=>'index/index'
                 );
             }
-            return false;
+            return array(
+                'flag'=>false,
+                'url'=>$loginStatus
+            );
         }
         return view($this->style . 'Login/index');
     }
