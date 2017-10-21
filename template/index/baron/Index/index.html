@@ -1,30 +1,502 @@
-{extend name="index/baron/base" /}
-{block name="commonTop"}
-{/block}
-{block name="main"}
-<div class="index-content">
-    <div class="index-table">
-        <div class="index-table_1">
-            <div class="high-logo" style="height: 110px;">
-                <img style="vertical-align: inherit" src="__STATIC__/sliver/img/index/logo_bg.png" alt="SLIVER TREE-共享岛"> </div>
-            <div class="index-box clearfix" id="indexSearch">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="__STATIC__/sliver/index/css/reset.css" />
+    <link rel="stylesheet" href="__STATIC__/sliver/index/css/login.css" />
+    <link rel="stylesheet" href="__STATIC__/sliver/index/css/home_v4.css" />
+    <link rel="stylesheet" href="__STATIC__/sliver/index/css/multimedia_v3.css" />
+    <link rel="stylesheet" href="__STATIC__/sliver/index/css/public_v5.css" />
+    <link rel="stylesheet" href="__STATIC__/sliver/index/css/iconfont.css" />
+    <script type="text/javascript" src="__STATIC__/sliver/index/js/jquery.js" ></script>
+    <script>
+        var now = new Date();
+        var beginTime = now.getTime();
+        var c;
+        var getInitUrls = function() {}
+    </script>
+    <style>
+        html,body{
+            min-width: 1000px;
+        }
+    </style>
+</head>
 
-                <div class="index-list fl">
-                    <div class="index-search-box active">
-                        <form action="INDEX_MAIN/Search/" method="post" class="index-search index-search1">
-                            <input type="text" class="btn-indexsearch" value="" placeholder="请输入您想要的内容">
-                            <button type="submit" style="cursor: pointer;">搜 索</button>
-                        </form>
-                            <div class="history" style="display: none;">
-                            <ul></ul>
-                        </div>
-                    </div>
+<body>
+<!--内容-->
+<div class="body-wrap head home">
+    <div class="bt-body">
+        <!--首页头部-->
+        <div class="pb-head pb-head-home">
+            <div class="logo-b-wrap">
+                <a href="" class="logo-b"><img src="__STATIC__/sliver/index/img/logo.png" alt="共享岛"></a>
+            </div>
+            <div class="head-cot">
+                <div class="user-center">
+                    <!--<div class="login-register">
+                        <a rel="nofollow" href="javascript:;" class="login">请登录</a>
+                        <a rel="nofollow" href="javascript:;" class="register">免费注册</a>
+                    </div>-->
+                    <!--<i class="ver-line"></i>-->
+                    <!--是否有消息的红点由active类控制-->
+                    <!--<div class="user-notices active"><i class="iconfont icon-tongzhi"></i><i class="redPot"></i></div>-->
                 </div>
-                <div class="high-link fr">
-                    <a href="">高级搜索</a>
+                <div class="web-collect-wrap">
+                    <a href="javascript:;" class="collect-icon"></a>
+                    <div class="collect-bt">
+                        <div class="al-bg gradient-hor-og "><span>Ctrl+D</span>
+                            <h2>收藏ST·共享岛</h2>
+                            <p>全站素材来自网络</p>
+                        </div>
+                        <a href="javascript:;" class="gradient-hor-og">关闭</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <!--头部end-->
+        <!--分类页导航模块-->
+        <div class="pb-nav">
+            <div class="nav-wrap">
+                <nav class="nav">
+                    <ul class="clearfix">
+                        <li class="nav-item">
+                            <a href="" class="active">首页</a>
+                        </li>
+                        <li class="nav-item left-two">
+                            <a target="_blank" href="">广告设计</a>
+                            <div class="nav-hover-banner">
+                                <div class="hover-classify-one">
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">海报</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">画册封面</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">展板</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">宣传单|折页</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">证书</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">名片|vip卡</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">节日设计</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">简历</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">画册整套</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="" target="_blank">更多&gt;&gt;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item left-two">
+                            <a target="_blank" href="">电商淘宝</a>
+                            <div class="nav-hover-banner">
+                                <div class="hover-classify-one">
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">淘宝海报</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">主图|直通车</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">淘宝首页</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">淘宝详情页</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">淘宝手机端模板</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">节日活动</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="">综合模板</a>
+                                    </div>
+                                    <div class="classify-item-wrap">
+                                        <a class="classify-one-item" href="" target="_blank">更多&gt;&gt;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a target="_blank" href="">多媒体</a>
+                            <div class="nav-hover-banner">
+                                <div class="opacity-block"></div>
+                                <div class="hover-classify-two">
+                                    <div class="classify-two-wrap">
+                                        <a href="">视频</a>
+                                        <!--下面的ul都是根据数据渲染出来的，第一个li是大类，数据里需要有iconfont图标的类名-->
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">AE模板</a>
+                                            </li>
+                                            <li>
+                                                <a href="">会声会影</a>
+                                            </li>
+                                            <li>
+                                                <a href="">宣传片</a>
+                                            </li>
+                                            <li>
+                                                <a href="">实拍视频</a>
+                                            </li>
+                                            <li>
+                                                <a href="">背景视频</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="classify-two-wrap">
+                                        <a href="">音效</a>
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">广告设计</a>
+                                            </li>
+                                            <li>
+                                                <a href="">影视音效</a>
+                                            </li>
+                                            <li>
+                                                <a href="">游戏音效</a>
+                                            </li>
+                                            <li>
+                                                <a href="">语言音效</a>
+                                            </li>
+                                            <li>
+                                                <a href="">动画音效</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="classify-two-wrap">
+                                        <a href="">配乐</a>
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">影视配乐</a>
+                                            </li>
+                                            <li>
+                                                <a href="">游戏配乐</a>
+                                            </li>
+                                            <li>
+                                                <a href="">乐器曲风</a>
+                                            </li>
+                                            <li>
+                                                <a href="">婚礼音乐</a>
+                                            </li>
+                                            <li>
+                                                <a href="">唱片专辑</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a target="_blank" href="">企业办公</a>
+                            <div class="nav-hover-banner">
+                                <div class="opacity-block"></div>
+                                <div class="hover-classify-two">
+                                    <div class="classify-two-wrap">
+                                        <a href="">PPT模板</a>
+                                        <!--下面的ul都是根据数据渲染出来的，第一个li是大类，数据里需要有iconfont图标的类名-->
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">工作汇报</a>
+                                            </li>
+                                            <li>
+                                                <a href="">计划总结</a>
+                                            </li>
+                                            <li>
+                                                <a href="">企业介绍</a>
+                                            </li>
+                                            <li>
+                                                <a href="">商业计划书</a>
+                                            </li>
+                                            <li>
+                                                <a href="">产品发布</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="classify-two-wrap">
+                                        <a href="">Excel精选</a>
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">人事</a>
+                                            </li>
+                                            <li>
+                                                <a href="">行政</a>
+                                            </li>
+                                            <li>
+                                                <a href="">财务</a>
+                                            </li>
+                                            <li>
+                                                <a href="">销售/采购</a>
+                                            </li>
+                                            <li>
+                                                <a href="">运营/客服</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="classify-two-wrap">
+                                        <a href="">Word精选</a>
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">简历</a>
+                                            </li>
+                                            <li>
+                                                <a href="">通用</a>
+                                            </li>
+                                            <li>
+                                                <a href="">人事</a>
+                                            </li>
+                                            <li>
+                                                <a href="">行政</a>
+                                            </li>
+                                            <li>
+                                                <a href="">运营</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a target="_blank" href="">背景元素</a>
+                            <div class="nav-hover-banner">
+                                <div class="opacity-block"></div>
+                                <div class="hover-classify-two">
+                                    <div class="classify-two-wrap">
+                                        <a href="">元素</a>
+                                        <!--下面的ul都是根据数据渲染出来的，第一个li是大类，数据里需要有iconfont图标的类名-->
+                                        <ul class="classify-two-ul">
+                                            <li>
+                                                <a href="">不规则图形</a>
+                                            </li>
+                                            <li>
+                                                <a href="">装饰图案</a>
+                                            </li>
+                                            <li>
+                                                <a href="">手绘卡通</a>
+                                            </li>
+                                            <li>
+                                                <a href="">边框纹理</a>
+                                            </li>
+                                            <li>
+                                                <a href="">效果元素</a>
+                                            </li>
+                                            <li class="margin-sm">
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="classify-two-wrap">
+                                        <a href="">背景</a>
+                                        <ul class="classify-two-ul">
+                                            <li class="margin-sm">
+                                                <a href="">广告设计背景</a>
+                                            </li>
+                                            <li class="margin-sm">
+                                                <a href="">海报banner背景</a>
+                                            </li>
+                                            <li class="margin-sm">
+                                                <a href="">主图|直通车背景</a>
+                                            </li>
+                                            <li class="margin-sm">
+                                                <a href="">首页|详情页背景</a>
+                                            </li>
+                                            <li class="margin-sm">
+                                                <a href="">优质配图</a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank">更多&gt;&gt;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-item-more">
+                            <a rel="nofollow" href="javascript:;" class="new-news">…</a>
+                            <div class="nav-hover-banner">
+                                <div class="more-item">
+                                    <a rel="nofollow" target="_blank" href=""><span>合作</span></a>
+                                    <div class="hoverline-wrap"><i class="hoverline"></i></div>
+                                </div>
+                                <div class="more-item">
+                                    <a rel="nofollow" target="_blank" href=""><span>反馈</span></a>
+                                    <div class="hoverline-wrap"><i class="hoverline"></i></div>
+                                </div>
+
+                                <div class="more-item">
+                                    <a rel="nofollow" target="_blank" href=""><span class="new-news">公告</span></a>
+                                    <div class="hoverline-wrap"><i class="hoverline"></i></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hoverLine-wrap"><i class="hoverLine" style="width: 0px; opacity: 1; left: 485px;"></i></div>
+            </div>
+
+            <div class="home-search-panel">
+                <div class="home-search-wrap">
+                    <input type="text" placeholder="搜索素材" id="so-kw" class="home-search-inp">
+                    <a href="javascript:;" class="home-search but-search"><i class="iconfont icon-search"></i></a>
+                    <!--<div class="home-search-tips">
+                        <a href="" target="_blank">海报</a>
+                        <a href="" target="_blank">双十一</a>
+                        <a href="" target="_blank">PPT</a>
+                        <a href="" target="_blank">背景</a>
+                        <a href="" target="_blank">招聘</a>
+                        <a href="" target="_blank">名片</a>
+                        <a href="" target="_blank">画册</a>
+                        <a href="" target="_blank">小清新</a>
+                        <a href="" target="_blank">地产</a>
+                    </div>-->
+                </div>
+            </div>
+
+            <!--轮播图-->
+            <div class="slide-home">
+                <ul class="slide-wrap clearfix" style="width: 7600px;">
+                    <li class="slide-item" data-k="6">
+                        <a rel="nofollow" href="" target="_blank">
+                            <img class="scrollLoading" data-url="__STATIC__/sliver/index/img/banner_0.jpg" alt="" src="__STATIC__/sliver/index/img/banner_0.jpg"></a>
+                    </li>
+                    <li class="slide-item banner_click" data-k="1">
+                        <a rel="nofollow" href="" target="_blank">
+                            <img class="scrollLoading" data-url="__STATIC__/sliver/index/img/banner_1.jpg" alt="" src="__STATIC__/sliver/index/img/banner_1.jpg"></a>
+                    </li>
+                    <li class="slide-item banner_click" data-k="2">
+                        <a rel="nofollow" href="" target="_blank">
+                            <img class="scrollLoading" data-url="__STATIC__/sliver/index/img/banner_2.jpg" alt="" src="__STATIC__/sliver/index/img/banner_2.jpg"></a>
+                    </li>
+                    <!--<li class="slide-item banner_click" data-k="3">-->
+                        <!--<a rel="nofollow" href="" target="_blank">-->
+                            <!--<img class="scrollLoading" data-url="img/banner_3.jpg" alt="" src="img/banner_3.jpg"></a>-->
+                    <!--</li>-->
+                    <!--<li class="slide-item banner_click" data-k="4">-->
+                        <!--<a rel="nofollow" href="" target="_blank">-->
+                            <!--<img class="scrollLoading" data-url="img/banner_4.jpg" alt="" src="img/banner_4.jpg"></a>-->
+                    <!--</li>-->
+                    <!--<li class="slide-item banner_click" data-k="5">-->
+                        <!--<a rel="nofollow" href="" target="_blank">-->
+                            <!--<img class="scrollLoading" data-url="img/banner_5.jpg" alt="" src="img/banner_5.jpg"></a>-->
+                    <!--</li>-->
+                    <li class="slide-item banner_click" data-k="6">
+                        <a rel="nofollow" href="" target="_blank">
+                            <img class="scrollLoading" data-url="__STATIC__/sliver/index/img/banner_0.jpg" alt="" src="__STATIC__/sliver/index/img/banner_0.jpg"></a>
+                    </li>
+                    <li class="slide-item" data-k="1">
+                        <a rel="nofollow" href="" target="_blank">
+                            <img class="scrollLoading" data-url="__STATIC__/sliver/index/img/banner_1.jpg" alt="" src="__STATIC__/sliver/index/img/banner_1.jpg"></a>
+                    </li>
+                </ul>
+                <ul class="slide-focus clearfix">
+                    <li class="active" style="border: 0px;"></li>
+                    <li class="" style="border: 1px solid rgba(0, 0, 0, 0.2);"></li>
+                    <li class="" style="border: 1px solid rgba(0, 0, 0, 0.2);"></li>
+                    <!--<li class="" style="border: 1px solid rgba(0, 0, 0, 0.2);"></li>-->
+                    <!--<li class="" style="border: 1px solid rgba(0, 0, 0, 0.2);"></li>-->
+                    <!--<li class="" style="border: 1px solid rgba(0, 0, 0, 0.2);"></li>-->
+                </ul><i class="pb-icon icons-left-arrow  prev"></i><i class="pb-icon icons-right-arrow next"></i>
+                <a href="javascript:;" class="home-slogan">
+                    <div class="bg-bottom"><i class="iconfont icon-icon1"></i></div>
+                    <!--<div class="bg-top"></div>-->
+                    <div class="slogan-words">
+                        <h2>ST · 共享岛</h2>
+                        <p>更新时间<br>不定期</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--end-->
+
     </div>
 </div>
-{/block}
+<div style="display: none;">
+    <div id="ad" class="body-wrap">
+        <div class="bt-body">
+            <!--主体内容-->
+            <div class="main-body">
+
+            </div>
+            <!--主体内容end-->
+        </div>
+    </div>
+    <div id="taobao" class="body-wrap">
+        <div class="bt-body">
+            <!--主体内容-->
+            <div class="main-body">
+
+            </div>
+            <!--主体内容end-->
+        </div>
+    </div>
+    <div id="video" class="body-wrap">
+        <div class="bt-body">
+            <!--主体内容-->
+            <div class="main-body">
+
+            </div>
+        </div>
+    </div>
+    <div id="ppt" class="body-wrap">
+        <div class="bt-body">
+            <!--主体内容-->
+            <div class="main-body">
+
+            </div>
+            <!--主体内容end-->
+        </div>
+    </div>
+    <div id="element" class="body-wrap">
+        <div class="bt-body">
+            <!--主体内容-->
+            <div class="main-body">
+
+            </div>
+            <!--主体内容end-->
+        </div>
+    </div>
+
+</div>
+
+<!-- 公共尾部-->
+<!--公用底部-->
+<footer style="background: #fff;height: 30px;line-height: 30px;">
+    <p>Copyright © 2017 SliverTree 版权所有 保留一切权利 备案号:蜀ICP备16027104号-3</p>
+</footer>
+</body>
+<script type="text/javascript" src="__STATIC__/sliver/index/js/public_v3.js" ></script>
+<script type="text/javascript" src="__STATIC__/sliver/index/js/home.js" ></script>
+<script type="text/javascript" src="__STATIC__/sliver/index/js/jquery.scrollLoading.js" ></script>
+<script type="text/javascript" src="__STATIC__/sliver/index/js/cTween.js" ></script>
+</html>
