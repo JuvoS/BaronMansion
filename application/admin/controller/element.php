@@ -24,20 +24,34 @@ class Element extends BaseController {
         $this->assign('userRes',$userRes[0]);
     }
     public function index(){
-
-        return view($this->style . 'element/index');
+        return view($this->style . 'Element/index');
     }
 
     /**
      * 产品类别
      */
     public function eleKind(){
-        return view($this->style . 'element/eleKind');
+        if($_POST){
+            var_dump($_POST);
+        }
+        return view($this->style . 'Element/eleKind');
     }
     /**
      * 添加产品
      */
     public function addEle(){
-
+        return view($this->style . 'Element/addEle');
+    }
+    /**
+     * 添加产品
+     */
+    public function uploadEle(){
+        return view($this->style . 'Element/uploadEle');
+    }
+    /**
+     * 产品搜索
+     */
+    public function eleSearch(){
+        return view($this->style . 'Element/eleSearch');
     }
 }

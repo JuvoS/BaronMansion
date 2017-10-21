@@ -1,0 +1,47 @@
+{extend name="admin/baron/Index/base"}
+{block name="main"}
+<script src="__STATIC__/ele/filter/jquery-1.8.3.min.js"></script>
+<link href="__STATIC__/ele/filter/Fliter.css" rel="stylesheet" />
+<script src="__STATIC__/ele/filter/Filter.js"></script>
+<body data-type="search">
+<script src="__STATIC__/assets/js/theme.js"></script>
+<!-- 内容区域 -->
+<div class="row-content am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+            <div id="demo6"></div>
+            <input id="demo_value" type="text" value="">
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var data=[
+        {
+            "id": 1,
+            "text": 1
+        },
+        {
+            "id": 2,
+            "text": 2
+        },
+        {
+            "id": 3,
+            "text": 3
+        },
+        {
+            "id": 4,
+            "text": 4
+        }]
+    $('#demo6').comboboxfilter({
+        url: '',
+        scope: '',
+        unlimitText:'全部',
+        multiple: true,
+        data:data,
+        onChange:function(newValue){
+            $('#demo_value').val(newValue);
+        }
+    });
+</script>
+{/block}

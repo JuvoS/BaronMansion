@@ -1,4 +1,4 @@
-{extend name="admin/baron/index/base"}
+{extend name="admin/baron/Index/base"}
 {block name="main"}
 <link rel="stylesheet" href="__STATIC__/admin/search/css/hover.css">
 <body data-type="search">
@@ -37,7 +37,7 @@
         /*height: 100%;*/
     }
     .am-form-field {
-        color: #fff!important;
+        /*color: #fff!important;*/
     }
     .baron-img {
         display: block;
@@ -67,7 +67,7 @@
         height: auto
     }
 </style>
-<!-- 内容区域 -->q
+<!-- 内容区域 -->
 <div class="row-content am-cf">
     <div class="row">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
@@ -82,7 +82,7 @@
                             <div class="am-btn-toolbar">
                                 <div class="am-btn-group am-btn-group-xs">
                                     <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
-                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 添加类别</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"  data-am-modal="{target: '#doc-modal-notice-Type', closeViaDimmer: 0, width: 800, height: 600}"><span class="am-icon-save"></span> 添加类别</button>
                                     <!--<button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>-->
                                     <!--<button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>-->
                                 </div>
@@ -236,9 +236,111 @@
         </div>
     </div>
 </div>
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-notice-Type">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">添加产品类型
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <form action="ADMIN_MAIN/Element/eleKind" class="am-form am-text-left" method="post">
+                <div class="am-form-group">
+                    <label>产品类型名称：</label>
+                    <input type="text" name="childType" placeholder="产品类型名称" class="am-form-field" required/>
+                    <input type="hidden" name="type" value="ele">
+                    <input type="hidden" name="from" value="ele">
+                </div>
+                <div class="am-form-group">
+                    <label>选择父级别：</label>
+                    <div id="api_data">
+                        <dl>
+                            <dd>
+                                <select name="first" class="first select"></select>
+                                <select name="second" class="second select"></select>
+                                <select name="third" class="third select"></select>
+                                <select name="fourth" class="fourth select"></select>
+                                <select name="fifth" class="fifth select"></select>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <button class="am-btn am-btn-secondary" type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
-<script src="__STATIC__/admin/search/js/ios-parallax.js"></script>
+<!--<script src="__STATIC__/admin/search/js/ios-parallax.js"></script>-->
+<script src="__STATIC__/ele/jquery.cxselect.min.js"></script>
 <script type="text/javascript">
+    $(function(){
+        var dataCustom = [
+            {'v': '1', 'n': '第一级 >', 's': [
+                {'v': '2', 'n': '第二级 >', 's': [
+                    {'v': '3', 'n': '第三级 >', 's': [
+                        {'v': '4', 'n': '第四级 >', 's': [
+                            {'v': '5', 'n': '第五级 >', 's': [
+                                {'v': '6', 'n': '第六级 >'}
+                            ]}
+                        ]}
+                    ]}
+                ]}
+            ]},
+            {'v': 'test number', 'n': '测试数字', 's': [
+                {'v': 'text', 'n': '文本类型', 's': [
+                    {'v': '4', 'n': '4'},
+                    {'v': '5', 'n': '5'},
+                    {'v': '6', 'n': '6'},
+                    {'v': '7', 'n': '7'},
+                    {'v': '8', 'n': '8'},
+                    {'v': '9', 'n': '9'},
+                    {'v': '10', 'n': '10'}
+                ]},
+                {'v': 'number', 'n': '数值类型', 's': [
+                    {'v': 11, 'n': 11},
+                    {'v': 12, 'n': 12},
+                    {'v': 13, 'n': 13},
+                    {'v': 14, 'n': 14},
+                    {'v': 15, 'n': 15},
+                    {'v': 16, 'n': 16},
+                    {'v': 17, 'n': 17}
+                ]}
+            ]},
+            {'v': 'test boolean','n': '测试 Boolean 类型', 's': [
+                {'v': true ,'n': true},
+                {'v': false ,'n': false}
+            ]},
+            {v: 'test quotes', n: '测试属性不加引号', s: [
+                {v: 'quotes', n: '引号'}
+            ]},
+            {v: 'test other', n: '测试奇怪的值', s: [
+                {v: '[]', n: '数组（空）'},
+                {v: [1,2,3], n: '数组（数值）'},
+                {v: ['a','b','c'], n: '数组（文字）'},
+                {v: new Date(), n: '日期'},
+                {v: new RegExp('\\d+'), n: '正则对象'},
+                {v: /\d+/, n: '正则直接量'},
+                {v: {}, n: '对象'},
+                {v: document.getElementById('custom_data'), n: 'DOM'},
+                {v: null, n: 'Null'},
+                {n: '未设置 value'}
+            ]},
+            {'v': '' , 'n': '无子级'}
+        ];
+        // 自定义选项
+        // API 接口
+        var apiBox = $('#api_data');
+        var cxSelectApi;
 
+        apiBox.cxSelect({
+            selects: ['first', 'second', 'third','fourth','fifth'],
+            emptyStyle: 'none'
+        }, function(api) {
+            cxSelectApi = api;
+            cxSelectApi.setOptions({
+                data: dataCustom
+            });
+        });
+
+    });
 </script>
 {/block}
