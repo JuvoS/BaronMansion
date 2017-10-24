@@ -89,7 +89,7 @@ class BaseModel extends Model
         {
             return $data;
         }else
-            return '';
+            return array();
     }
     /**
      * 获取单条数据
