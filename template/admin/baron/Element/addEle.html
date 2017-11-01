@@ -6,6 +6,12 @@
 <script type="text/javascript" src="__STATIC__/ele/simditor/scripts/hotkeys.min.js"></script>
 <script type="text/javascript" src="__STATIC__/ele/simditor/scripts/uploader.min.js"></script>
 <script type="text/javascript" src="__STATIC__/ele/simditor/scripts/simditor.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__STATIC__/ele/baronTree/css/demoTree.css" />
+<script type="text/javascript" src="__STATIC__/ele/baronTree/js/data.js"></script>
+<script type="text/javascript" src="__STATIC__/ele/baronTree/js/tools.js"></script>
+<script type="text/javascript" src="__STATIC__/ele/baronTree/js/handledata.js"></script>
+<script type="text/javascript" src="__STATIC__/ele/baronTree/js/index.js"></script>
+<script type="text/javascript" src="__STATIC__/ele/addUp.js"></script>
 <body data-type="search">
 <script src="__STATIC__/assets/js/theme.js"></script>
 
@@ -13,87 +19,97 @@
 <div class="row-content am-cf">
     <div class="row">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
-            <div class="widget am-cf">
-                <div class="widget-head am-cf">
-                    <div class="widget-title  am-cf">产品列表</div>
-                </div>
-                <div class="widget-body  am-fr">
 
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
-                        <div class="am-form-group">
-                            <div class="am-btn-toolbar">
-                                <div class="am-btn-group am-btn-group-xs">
-                                    <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
-                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"  data-am-modal="{target: '#doc-modal-notice-Type', closeViaDimmer: 0, width: 800, height: 600}"><span class="am-icon-save"></span> 添加类别</button>
-                                    <!--<button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>-->
-                                    <!--<button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>-->
-                                </div>
-                            </div>
+            <div>
+                <div class="am-u-sm-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">信息填写</div>
                         </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-                        <div class="am-form-group tpl-table-list-select">
-                            <select data-am-selected="{btnSize: 'sm'}">
-                                <option value="option1">所有类别</option>
-                                <option value="option2">IT业界</option>
-                                <option value="option3">数码产品</option>
-                                <option value="option3">笔记本电脑</option>
-                                <option value="option3">平板电脑</option>
-                                <option value="option3">只能手机</option>
-                                <option value="option3">超极本</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
-                        <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                            <input type="text" class="am-form-field ">
-                                        <span class="am-input-group-btn">
-            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
-          </span>
-                        </div>
-                    </div>
-                    <div class="am-u-sm-12">
-                        <a><span class="am-icon-plus"></span>上传</a>
-                    </div>
-                    <div class="am-u-sm-12">
-                        <div class="am-form-group">
-                            <form action="ADMIN_MAIN/Serve/addDoc" class="am-form am-text-left" method="post">
-                                <div class="am-form-group">
-                                    <label>选择父级别：</label>
-                                    <div id="api_datas">
-                                        <dl>
-                                            <dd>
-                                                <select name="first" class="first select"></select>
-                                                <select name="second" class="second select"></select>
-                                                <select name="third" class="third select"></select>
-                                                <select name="fourth" class="fourth select"></select>
-                                                <select name="fifth" class="fifth select"></select>
-                                            </dd>
-                                        </dl>
+                        <div class="widget-body  am-fr">
+                            <div class="am-form-group">
+                                <form action="ADMIN_MAIN/Serve/addEle" class="am-form am-text-left" method="post">
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-title">标题：</label>
+                                        <input type="text" name="doc_title" id="doc-doc-title" placeholder="标题" class="am-form-field" required/>
                                     </div>
-                                </div>
-                                <div class="am-form-group">
-                                    <label for="doc-doc-title">标题：</label>
-                                    <input type="text" name="doc_title" id="doc-doc-title" placeholder="标题" class="am-form-field" required/>
-                                </div>
-                                <div class="am-form-group">
-                                    <label for="doc-doc-url">网址：</label>
-                                    <input type="url" name="doc_url" id="doc-doc-url" placeholder="网络地址" class="am-form-field"/>
-                                </div>
-                                <div class="am-form-group">
-                                    <label for="doc-doc-describe">描述：</label>
-                                    <textarea name="doc_describe" id="doc-doc-describe" placeholder="产品描述"></textarea>
-                                </div>
-                                <div class="am-form-group">
-                                    <label for="doc-doc-content">内容：</label>
-                                    <textarea id="doc-doc-content" name="doc_content" placeholder="文档内容" autofocus></textarea>
-                                </div>
-                                <button class="am-btn am-btn-secondary" type="submit">提交</button>
-                            </form>
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-url">网址：</label>
+                                        <input type="url" name="doc_url" id="doc-doc-url" placeholder="网络地址" class="am-form-field"/>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-describe">描述：</label>
+                                        <textarea name="doc_describe" id="doc-doc-describe" placeholder="产品描述"></textarea>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-content">内容：</label>
+                                        <textarea id="doc-doc-content" name="doc_content" placeholder="文档内容" autofocus></textarea>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-content">分类备注：</label>
+                                        <textarea placeholder="分类请用逗号隔开"></textarea>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-content">图片上传：</label>
+                                        <div class="am-u-sm-12">
+                                            <div class="am-u-sm-12 am-u-md-3">
+                                                <img class="icon icon-add" onclick="addUpImg(0);"/>
+                                            </div>
+                                            <div class="am-u-sm-12 am-u-md-9">
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                                <div class="am-u-sm-12 am-u-md-3">
+                                                    <img class="icon icon-add" src=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-doc-content">文件上传：</label>
+                                        <div class="am-u-sm-12 ">
+                                            <div class="am-u-sm-12 am-u-md-3">
+                                                <img class="icon icon-add" src=""/>
+                                            </div>
+                                            <div class="am-u-sm-12 am-u-md-3">
+                                                <img class="icon icon-add" src=""/>
+                                            </div>
+                                            <div class="am-u-sm-12 am-u-md-3">
+                                                <img class="icon icon-add" src=""/>
+                                            </div>
+                                            <div class="am-u-sm-12 am-u-md-3">
+                                                <img class="icon icon-add" src=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-u-sm-12 am-text-center">
+                                        <button class="am-btn am-btn-secondary" type="submit">提交</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -129,6 +145,10 @@
         </div>
     </div>
 </div>
+<form action="ADMIN_MAIN/Common/uploadImg" name="form" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadfile" />
+    <input type="submit" name="submit" id="addImgBtn" value="上传" />
+</form>
 </body>
 <!--<script src="__STATIC__/admin/search/js/ios-parallax.js"></script>-->
 <script src="__STATIC__/ele/jquery.cxselect.min.js"></script>

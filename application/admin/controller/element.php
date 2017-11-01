@@ -46,31 +46,36 @@ class Element extends BaseController {
             ),'','');
         }
 
-        $eleCateRes = $eleCateModel->group('classNum')->select();
-//        for($i=0;$i<count($eleCateRes);$i++){
-            $eleCateOne = $eleCateModel->getAllData(array(
-                'parentId'=>0
-            ),'');
-            for($k=0;$k<count($eleCateOne);$k++){
-                $eleCateTwo = $eleCateModel->getAllData(array(
-                    'parentId'=>$eleCateOne[$k]['Id']
-                ),'');
-                $eleCateOne[$k]['arr'] = $eleCateTwo;
-                for($m=0;$m<count($eleCateTwo);$m++){
-                    $eleCateThree = $eleCateModel->getAllData(array(
-                        'parentId'=>$eleCateTwo[$k]['Id']
-                    ),'');
-                    $eleCateTwo[$k]['arr'] = $eleCateThree;
-                }
-            }
+//        $eleCateRes = $eleCateModel->group('classNum')->select();
+////        for($i=0;$i<count($eleCateRes);$i++){
+//            $eleCateOne = $eleCateModel->getAllData(array(
+//                'parentId'=>0
+//            ),'');
+//            for($k=0;$k<count($eleCateOne);$k++){
+//                $eleCateTwo = $eleCateModel->getAllData(array(
+//                    'parentId'=>$eleCateOne[$k]['Id']
+//                ),'');
+//                $eleCateOne[$k]['arr'] = $eleCateTwo;
+//                for($m=0;$m<count($eleCateTwo);$m++){
+//                    $eleCateThree = $eleCateModel->getAllData(array(
+//                        'parentId'=>$eleCateTwo[$k]['Id']
+//                    ),'');
+//                    $eleCateTwo[$k]['arr'] = $eleCateThree;
+//                }
+//            }
 //        }
-        var_dump($eleCateRes);
+
+        $eleCateRes = $eleCateModel->getAllData('','');
+        $this->assign("eleCateRes",$eleCateRes);
         return view($this->style . 'Element/eleKind');
     }
     /**
      * 添加产品
      */
     public function addEle(){
+        if($_POST){
+            echo "ss";
+        }
         return view($this->style . 'Element/addEle');
     }
     /**

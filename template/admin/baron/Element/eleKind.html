@@ -1,6 +1,7 @@
 {extend name="admin/baron/Index/base"}
 {block name="main"}
 <link rel="stylesheet" href="__STATIC__/admin/search/css/hover.css">
+<link rel="stylesheet" href="__STATIC__/assets/css/amazeui.datatables.min.css" />
 <body data-type="search">
 <script src="__STATIC__/assets/js/theme.js"></script>
 <style>
@@ -115,17 +116,20 @@
                         <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
                             <thead>
                             <tr>
-                                <th>文章标题</th>
-                                <th>作者</th>
-                                <th>时间</th>
+                                <th>编号</th>
+                                <th>类别</th>
+                                <th>父标签(parentId)</th>
+                                <th>级别(classNum)</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
+                            {foreach name="$eleCateRes" item="eleItem"}
                             <tr class="gradeX">
-                                <td>Amaze UI 模式窗口</td>
-                                <td>张鹏飞</td>
-                                <td>2016-09-26</td>
+                                <td>{$eleItem.Id}</td>
+                                <td>{$eleItem.name}</td>
+                                <td>{$eleItem.parentId}</td>
+                                <td>{$eleItem.classNum}</td>
                                 <td>
                                     <div class="tpl-table-black-operation">
                                         <a href="javascript:;">
@@ -137,99 +141,10 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="even gradeC">
-                                <td>有适配微信小程序的计划吗</td>
-                                <td>天纵之人</td>
-                                <td>2016-09-26</td>
-                                <td>
-                                    <div class="tpl-table-black-operation">
-                                        <a href="javascript:;">
-                                            <i class="am-icon-pencil"></i> 编辑
-                                        </a>
-                                        <a href="javascript:;" class="tpl-table-black-operation-del">
-                                            <i class="am-icon-trash"></i> 删除
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="gradeX">
-                                <td>请问有没有amazeui 分享插件</td>
-                                <td>王宽师</td>
-                                <td>2016-09-26</td>
-                                <td>
-                                    <div class="tpl-table-black-operation">
-                                        <a href="javascript:;">
-                                            <i class="am-icon-pencil"></i> 编辑
-                                        </a>
-                                        <a href="javascript:;" class="tpl-table-black-operation-del">
-                                            <i class="am-icon-trash"></i> 删除
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>关于input输入框的问题</td>
-                                <td>着迷</td>
-                                <td>2016-09-26</td>
-                                <td>
-                                    <div class="tpl-table-black-operation">
-                                        <a href="javascript:;">
-                                            <i class="am-icon-pencil"></i> 编辑
-                                        </a>
-                                        <a href="javascript:;" class="tpl-table-black-operation-del">
-                                            <i class="am-icon-trash"></i> 删除
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="even gradeC">
-                                <td>有没有发现官网上的下载包不好用</td>
-                                <td>醉里挑灯看键</td>
-                                <td>2016-09-26</td>
-                                <td>
-                                    <div class="tpl-table-black-operation">
-                                        <a href="javascript:;">
-                                            <i class="am-icon-pencil"></i> 编辑
-                                        </a>
-                                        <a href="javascript:;" class="tpl-table-black-operation-del">
-                                            <i class="am-icon-trash"></i> 删除
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="even gradeC">
-                                <td>我建议WEB版本文件引入问题</td>
-                                <td>罢了</td>
-                                <td>2016-09-26</td>
-                                <td>
-                                    <div class="tpl-table-black-operation">
-                                        <a href="javascript:;">
-                                            <i class="am-icon-pencil"></i> 编辑
-                                        </a>
-                                        <a href="javascript:;" class="tpl-table-black-operation-del">
-                                            <i class="am-icon-trash"></i> 删除
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            {/foreach}
                             <!-- more data -->
                             </tbody>
                         </table>
-                    </div>
-                    <div class="am-u-lg-12 am-cf">
-
-                        <div class="am-fr">
-                            <ul class="am-pagination tpl-pagination">
-                                <li class="am-disabled"><a href="#">«</a></li>
-                                <li class="am-active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -251,20 +166,20 @@
                     <input type="hidden" name="type" value="ele">
                     <input type="hidden" name="from" value="ele">
                 </div>
-                <div class="am-form-group">
-                    <label>选择父级别：</label>
-                    <div id="api_data">
-                        <dl>
-                            <dd>
-                                <select name="first" class="first select"></select>
-                                <select name="second" class="second select"></select>
-                                <select name="third" class="third select"></select>
-                                <select name="fourth" class="fourth select"></select>
-                                <select name="fifth" class="fifth select"></select>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
+                <!--<div class="am-form-group">-->
+                    <!--<label>选择父级别：</label>-->
+                    <!--<div id="api_data">-->
+                        <!--<dl>-->
+                            <!--<dd>-->
+                                <!--<select name="first" class="first select"></select>-->
+                                <!--<select name="second" class="second select"></select>-->
+                                <!--<select name="third" class="third select"></select>-->
+                                <!--<select name="fourth" class="fourth select"></select>-->
+                                <!--<select name="fifth" class="fifth select"></select>-->
+                            <!--</dd>-->
+                        <!--</dl>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <button class="am-btn am-btn-secondary" type="submit">提交</button>
             </form>
         </div>
@@ -272,6 +187,18 @@
 </div>
 </body>
 <!--<script src="__STATIC__/admin/search/js/ios-parallax.js"></script>-->
+<script src="__STATIC__/assets/js/amazeui.datatables.min.js"></script>
+<script src="__STATIC__/assets/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#example-r').DataTable({
+            columnDefs: [
+                {type: 'chinese-string', targets: '_all'}
+            ]
+        });
+    });
+</script>
+
 <script src="__STATIC__/ele/jquery.cxselect.min.js"></script>
 <script type="text/javascript">
     $(function(){
